@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\build\vs2015\x64\CMakeFiles\8b574e3ecc3e802febe5d2fc1b708cef\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F934AE8F-DD07-3068-A581-155559B1804B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

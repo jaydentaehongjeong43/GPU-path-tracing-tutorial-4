@@ -1,8 +1,9 @@
+#define NOMINMAX
 #include <GL/glew.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 #endif
 #include <sstream>
 #include <iostream>
@@ -26,19 +27,19 @@
 // test scenes
 
 //const char* scenefile = "data/icosahedron.obj";
-//const char* scenefile = "data/dragon_vrip_res3.ply";  
-const char* scenefile = "data/dragon.obj"; 
-//const char* scenefile = "data/happy_vrip_res2.ply";  
-//const char* scenefile = "data/happy_vrip.ply"; 
-//const char* scenefile = "data/bun_zipper.ply";  
+//const char* scenefile = "data/dragon_vrip_res3.ply";
+const char* scenefile = "data/dragon.obj";
+//const char* scenefile = "data/happy_vrip_res2.ply";
+//const char* scenefile = "data/happy_vrip.ply";
+//const char* scenefile = "data/bun_zipper.ply";
 //const char* scenefile = "data/trumpet.obj";      // minicooper.obj, cessna.obj
-//const char* scenefile = "data/italianfromblender2.obj"; 
-//const char* scenefile = "data/dragon.obj"; 
-//const char* scenefile = "data/sponza_crytek.obj"; 
+//const char* scenefile = "data/italianfromblender2.obj";
+//const char* scenefile = "data/dragon.obj";
+//const char* scenefile = "data/sponza_crytek.obj";
 
 // HDR environment
 
-//const char* HDRmapname = "data/ArboretumInBloom_Ref.hdr"; 
+//const char* HDRmapname = "data/ArboretumInBloom_Ref.hdr";
 const char* HDRmapname = "data/Topanga_Forest_B_3k.hdr";
 //const char* HDRmapname = "data/Ditch-River_2k.hdr";
 //const char* HDRmapname = "data/GCanyon_C_YumaPoint_3k.hdr";
@@ -99,7 +100,7 @@ void createVBO(GLuint* vbo)
 	cudaGLRegisterBufferObject(*vbo);
 }
 
-// display function called by glutMainLoop(), gets executed every frame 
+// display function called by glutMainLoop(), gets executed every frame
 void disp(void)
 {
 	// if camera has moved, reset the accumulation buffer
@@ -125,7 +126,7 @@ void disp(void)
 	// gateway from host to CUDA, passes all data needed to render frame (triangles, BVH tree, camera) to CUDA for execution
 	cudaRender(cudaNodePtr, cudaTriWoopPtr, cudaTriDebugPtr, cudaTriIndicesPtr, finaloutputbuffer,
 		accumulatebuffer, gpuHDRenv, framenumber, hashedframes, nodeSize, leafnode_count, triangle_count, cudaRendercam);
-	
+
 	cudaThreadSynchronize();
 	cudaGLUnmapBufferObject(vbo);
 	//glFlush();
@@ -182,7 +183,7 @@ void writeBVHcachefile(FILE* BVHcachefile, const std::string BVHcacheFilename){
 	if (triWoopSize != fwrite(cpuTriWoopPtr, sizeof(Vec4i), triWoopSize, BVHcachefile)) std::cout << "Error writing BVH cache file!\n";
 	if (triDebugSize != fwrite(cpuTriDebugPtr, sizeof(Vec4i), triDebugSize, BVHcachefile)) std::cout << "Error writing BVH cache file!\n";
 	if (triIndicesSize != fwrite(cpuTriIndicesPtr, sizeof(S32), triIndicesSize, BVHcachefile)) std::cout << "Error writing BVH cache file!\n";
-	
+
 	fclose(BVHcachefile);
 	std::cout << "Successfully created BVH cache file!\n";
 }
@@ -191,18 +192,18 @@ void writeBVHcachefile(FILE* BVHcachefile, const std::string BVHcacheFilename){
 // from https://graphics.stanford.edu/wikis/cs148-11-summer/HDRIlluminator
 
 void initHDR(){
-	
+
 	HDRImage HDRresult;
 	const char* HDRfile = HDRmapname;
 
-	if (HDRLoader::load(HDRfile, HDRresult)) 
+	if (HDRLoader::load(HDRfile, HDRresult))
 		printf("HDR environment map loaded. Width: %d Height: %d\n", HDRresult.width, HDRresult.height);
-	else{ 
-		printf("HDR environment map not found\nAn HDR map is required as light source. Exiting now...\n"); 
+	else{
+		printf("HDR environment map not found\nAn HDR map is required as light source. Exiting now...\n");
 		system("PAUSE");
 		exit(0);
 	}
-	
+
 	int HDRwidth = HDRresult.width;
 	int HDRheight = HDRresult.height;
 	cpuHDRenv = new Vec4f[HDRwidth * HDRheight];
@@ -226,7 +227,7 @@ void initCUDAscenedata(){
 
 	// allocate GPU memory for accumulation buffer
 	cudaMalloc(&accumulatebuffer, scrwidth * scrheight * sizeof(Vec3f));
-	
+
 	// allocate GPU memory for interactive camera
 	cudaMalloc((void**)&cudaRendercam, sizeof(Camera));
 
@@ -247,7 +248,7 @@ void initCUDAscenedata(){
 }
 
 void createBVH(){
-	
+
 	load_object(scenefile);
 	float maxi2 = processgeo();
 
@@ -269,8 +270,8 @@ void createBVH(){
 	}
 
 	// fill up Array of vertices
-	for (unsigned int i = 0; i < verticesNo; i++) { 
-		verts.add(Vec3f(vertices[i].x, vertices[i].y, vertices[i].z)); 
+	for (unsigned int i = 0; i < verticesNo; i++) {
+		verts.add(Vec3f(vertices[i].x, vertices[i].y, vertices[i].z));
 	}
 
 	std::cout << "Building a new scene\n";
@@ -335,15 +336,15 @@ int main(int argc, char** argv){
 	// create a CPU camera
 	hostRendercam = new Camera();
 	// initialise an interactive camera on the CPU side
-	initCamera();	
+	initCamera();
 	interactiveCamera->buildRenderCamera(hostRendercam);
 
 	std::string BVHcacheFilename(scenefile);
-	BVHcacheFilename += ".bvh";  
+	BVHcacheFilename += ".bvh";
 
 	FILE* BVHcachefile = fopen(BVHcacheFilename.c_str(), "rb");
 	if (!BVHcachefile){ nocachedBVH = true; }
-	
+
 	//if (true){ // overrule cache
 	if (nocachedBVH){
 		std::cout << "No cached BVH file available\nCreating new BVH...\n";
@@ -355,9 +356,9 @@ int main(int argc, char** argv){
 
 	else { // cached BVH available
 		std::cout << "Cached BVH available\nReading " << BVHcacheFilename << "...\n";
-		loadBVHfromCache(BVHcachefile, BVHcacheFilename); 
+		loadBVHfromCache(BVHcachefile, BVHcacheFilename);
 	}
-	
+
 	initCUDAscenedata(); // copy scene data to the GPU, ready to be used by CUDA
 	initHDR(); // initialise the HDR environment map
 

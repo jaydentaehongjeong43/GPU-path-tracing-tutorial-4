@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\BVH.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\BVHNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\CudaBVH.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\HDRloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\SceneLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Sort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\SplitBVHBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\BVH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\BVHNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\CudaBVH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\CudaRenderKernel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\HDRloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\MouseKeyboardInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\SceneLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\SplitBVHBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\cutil_math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\linear_math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\renderkernel.cu" />
+    <CustomBuild Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="C:\Users\USER\Documents\GitHub\GPU-path-tracing-tutorial-4\build\vs2015\x64\CMakeFiles\tutorial4.dir\$(Configuration)\tutorial4_generated_renderkernel.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6D386E41-CAE4-3ECA-9156-8F0DCBEA0AA3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{60A3443A-FEA4-374A-BA2F-08993227BF20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{A0621957-8276-3711-A0FC-5BFE0B6BEB21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
